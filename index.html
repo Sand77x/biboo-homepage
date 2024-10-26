@@ -11,7 +11,7 @@
         <h1>You have opened a new tab!</h1>
         <img id="advent-img" src="advent.gif">
         <form method="get" action="https://google.com/search">
-            <input id="search-bar" "name=" q" type="text" placeholder="Search the web" autofocus>
+            <input id="search-bar" name="q" type="text" placeholder="Search the web" autofocus>
             <input id="submit-button" value=">" type="submit">
         </form>
         <span id="dangit-counter">0 dangits</span>
@@ -62,7 +62,7 @@
         searchBar.focus()
     }
 
-    document.body.addEventListener('keydown', handleKeyPress)
+    document.body.addEventListener('keyup', handleKeyPress)
     document.body.addEventListener('click', handleClick)
 </script>
 
