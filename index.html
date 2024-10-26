@@ -138,11 +138,11 @@
     }
 
     form {
-        position: relative;
-        width: 60%;
+        display: flex;
     }
 
     input {
+        flex-grow: 1;
         display: block;
         margin-inline: auto;
         margin-top: 50px;
@@ -155,14 +155,22 @@
         border: 2px solid gray;
     }
 
+    input:focus {
+        outline: none;
+    }
+
     #submit-button {
-        position: absolute;
         font-size: 1rem;
         font-weight: bold;
         width: 50px;
         top: 0;
         right: 0;
         border: 2px solid gray;
+        border-left: none;
+    }
+
+    #submit-button:hover {
+        background-color: #222;
     }
 
     .popup {
