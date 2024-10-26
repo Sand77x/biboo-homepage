@@ -10,7 +10,7 @@
     <main>
         <h1>You have opened a new tab!</h1>
         <img id="advent-img" src="advent.gif">
-        <form method="get" action="https://google.com/search">
+        <form id="search-form" method="get" action="https://google.com/search">
             <input id="search-bar" name="q" type="text" placeholder="Search the web" autofocus>
             <input id="submit-button" value=">" type="submit">
         </form>
@@ -19,6 +19,7 @@
 </body>
 
 <script>
+    const submit = document.getElementById('submit-button')
     const searchBar = document.getElementById('search-bar')
     const dangIt = document.getElementById('dangit-counter')
     let dangIts = 0
@@ -26,13 +27,18 @@
     const sound = new Audio('dang-it-biboo.mp3')
     sound.volume = 0.75
 
-    function handleClick({pageX, pageY}) {
+    function handleClick(event) {
+        // pressing enter counts as a mouse click??
+        if (event.target == submit) {
+            return
+        }
+
         // create a biboo
         const biboo = document.createElement('img')
         biboo.src = 'biboo.jpg'
         biboo.className = 'popup'
-        biboo.style.left = (pageX - 20) + 'px'
-        biboo.style.top = (pageY - 20) + 'px'
+        biboo.style.left = (event.pageX - 20) + 'px'
+        biboo.style.top = (event.pageY - 20) + 'px'
 
         // randomize biboo popup 
         const randomScale = Math.random() * 10 + 1
@@ -48,7 +54,7 @@
         // cleanup biboo :(
         setTimeout(() => {
             biboo.remove()
-        }, 1000)
+        }, 502)
 
         // dang it!
         sound.cloneNode().play()
